@@ -1,1 +1,1 @@
-gunicorn python no_show_inference.py
+web: gunicorn python iris_app.py
