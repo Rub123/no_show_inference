@@ -12,7 +12,12 @@ app = Flask(__name__)
 with open('model.pickle', 'rb') as f:
     model = pickle.load(f)
 
-
+    
+@app.route('/')
+def index():
+    return 'Welcome to No-Show Inference Server'
+    
+    
 @app.route('/predict', methods=["POST"])
 def predict():
     if not request.is_json:
