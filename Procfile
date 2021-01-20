@@ -1,1 +1,1 @@
-web: python iris_app.py
+web: python no_show_inference.py
