@@ -5,7 +5,7 @@ import pickle
 import json
 import os
 from preprocess_data import preprocess
-# import sklearn
+import sklearn
 
 app = Flask(__name__)
 
