@@ -1,1 +1,2 @@
-web: python no_show_inference.py
+web: gunicorn no_show_inference:no_show_inference
+
