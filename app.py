@@ -5,19 +5,20 @@ import pickle
 import json
 import os
 from preprocess_data import preprocess
-import sklearn
+from zipfile import ZipFile
+# import sklearn
 
 app = Flask(__name__)
 
-with open('model.pickle', 'rb') as f:
-    model = pickle.load(f)
+with ZipFile('model.zip', 'r') as f:
+    model = pickle.load(f.open('model.pickle'))
 
-    
+
 @app.route('/')
 def index():
     return 'Welcome to No-Show Inference Server'
-    
-    
+
+
 @app.route('/predict', methods=["POST"])
 def predict():
     if not request.is_json:
@@ -35,4 +36,3 @@ if __name__ == '__main__':
         app.run(host='0.0.0.0', port=int(port))
     else:
         app.run()
-
